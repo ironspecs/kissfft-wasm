@@ -1,5 +1,13 @@
 # Kiss FFT in WebAssembly
 
+This is a patched fork of [`kissfft-wasm`](https://github.com/iVilja/kissfft-wasm), modified to run safely inside the `AudioWorkletGlobalScope` used by Web Audio API.
+
+The original library is fast and clean, but its WebAssembly build settings do not support execution in the constrained environment of an `AudioWorklet`.
+
+This fork resolves that with a minimal set of changes.
+
+---
+
 [![Build & Test](https://github.com/iVilja/kissfft-wasm/actions/workflows/build.yml/badge.svg)](https://github.com/iVilja/kissfft-wasm/actions/workflows/build.yml)
 [![NPM](https://nodei.co/npm/kissfft-wasm.png)](https://npmjs.org/kissfft-wasm/)
 

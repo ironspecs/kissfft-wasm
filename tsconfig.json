@@ -5,24 +5,13 @@
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "nodenext",
-    "lib": [
-        "es2015"
-    ],
+    "lib": ["es2015"],
     "outDir": "./lib",
     "strict": true,
     "baseUrl": ".",
-    "typeRoots": [
-        "./typings",
-        "node_modules/@types"
-    ],
+    "typeRoots": ["./typings", "node_modules/@types"],
     "sourceMap": true
   },
-  "include": [
-    "./src/**/*.ts",
-    "./src/**/*.cts",
-    "./src/**/*.mts"
-  ],
-  "exclude": [
-    "./src/**/*.spec.ts"
-  ]
+  "include": ["./src/**/*.ts", "./src/**/*.cts", "./src/**/*.mts"],
+  "exclude": ["./src/**/*.spec.ts"]
 }

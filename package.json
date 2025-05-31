@@ -21,7 +21,7 @@
     "build:wasm": "cd ./deps && make release && cd ..",
     "build:esm": "tsc -p . && cp src/kissfft.* lib/",
     "build-debug": "npm run build:wasm-debug && npm run build:esm",
-    "build": "npm run build:wasm && npm run build:esm",
+    "build": "rm -rf ./lib npm run build:wasm && npm run build:esm",
     "watch": "tsc -p . -w"
   },
   "author": "Vilja <i@vilja.me> (https://vilja.me)",

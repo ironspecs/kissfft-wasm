@@ -1,6 +1,10 @@
 EMCC := emcc
 CFLAGS := -Wall -I./kissfft
-EMCC_FLAGS := -s MODULARIZE -s ALLOW_MEMORY_GROWTH
+EMCC_FLAGS := \
+  -s MODULARIZE=1 \
+  -s EXPORT_ES6=1 \
+  -s ALLOW_MEMORY_GROWTH=1 \
+  -s ENVIRONMENT=worker
 OBJ_DIR := ../src
 TARGETS := utils.o \
 	./kissfft/kiss_fft.o ./kissfft/kiss_fftnd.o \
@@ -25,7 +29,7 @@ test-browser: build
 build: $(TARGETS)
 	mkdir -p $(OBJ_DIR) && $(EMCC) $(CFLAGS) $(EMCC_FLAGS) \
 		-o $(OBJ_DIR)/kissfft.cjs $(TARGETS) \
-		-s EXPORTED_RUNTIME_METHODS="['ccall', 'cwrap']" \
+		-s EXPORTED_RUNTIME_METHODS="['ccall', 'cwrap', 'getValue', 'setValue', 'UTF8ToString', 'HEAPF32']" \
 		-s EXPORTED_FUNCTIONS="['_malloc', '_free', \
 		'_kiss_fft_alloc', '_kiss_fft',\
 		'_kiss_fftnd_alloc', '_kiss_fftnd', \
